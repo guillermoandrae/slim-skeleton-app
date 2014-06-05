@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./tests/bootstrap.php" strict="true">
+	<php>
+		<ini name="memory_limit" value="1512M"/>
+		<const name="PHPUNIT" value="true"/>
+		<const name="APPLICATION_ENV" value="test"/>
+	</php>
+</phpunit>
