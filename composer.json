@@ -1,0 +1,20 @@
+{
+	"name": "Slimish PHP Framework",
+	"type": "library",
+        "description": "A lightweight MVC framework based on Slim",
+        "minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4.0",
+		"slim/slim": "2.*",
+		"icanboogie/inflector": "dev-master",
+                "phpunit/phpunit": ">=3.7"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "1.*",
+	},
+	"autoload": {
+		"psr-0": {
+			"Slimish\\": "src/"
+		}
+	}
+}
