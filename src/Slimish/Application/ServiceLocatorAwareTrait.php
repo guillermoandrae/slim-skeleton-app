@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of the RelEng package.
+ * This file is part of the Slimish package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace RelEng\Application;
+namespace Slimish\Application;
 
 trait ServiceLocatorAwareTrait
 {
-    /** @var \RelEng\Application\ServiceLocator */
+    /** @var \Slimish\Application\ServiceLocator */
     private $serviceLocator;
 
     /**
-     * @param \RelEng\Application\ServiceLocator $serviceLocator
+     * @param \Slimish\Application\ServiceLocator $serviceLocator
      */
     public function setServiceLocator(ServiceLocator $serviceLocator)
     {
@@ -22,7 +22,7 @@ trait ServiceLocatorAwareTrait
     }
 
     /**
-     * @return \RelEng\Application\ServiceLocator
+     * @return \Slimish\Application\ServiceLocator
      */
     public function getServiceLocator()
     {

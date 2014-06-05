@@ -1,16 +1,16 @@
 <?php
 /**
- * This file is part of the RelEng package.
+ * This file is part of the Slimish package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace RelEng\Controller;
+namespace Slimish\Controller;
 
 use \Slim\Slim;
-use \RelEng\Application\ApplicationAwareTrait;
-use \RelEng\Application\ServiceLocatorAwareTrait;
+use \Slimish\Application\ApplicationAwareTrait;
+use \Slimish\Application\ServiceLocatorAwareTrait;
 
 abstract class ControllerAbstract implements ControllerInterface
 {
@@ -134,12 +134,12 @@ abstract class ControllerAbstract implements ControllerInterface
 
     /**
      * @param $name
-     * @return \RelEng\Entity\MapperInterface
+     * @return \Slimish\Entity\MapperInterface
      */
     final public function getMapper($name)
     {
         $serviceLocator = $this->getServiceLocator();
-        $factory = $serviceLocator->get('\RelEng\Entity\MapperFactory');
+        $factory = $serviceLocator->get('\Slimish\Entity\MapperFactory');
         return $factory->get($name);
     }
 }

@@ -1,21 +1,21 @@
 <?php
 /**
- * This file is part of the RelEng package.
+ * This file is part of the Slimish package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace RelEng\Entity;
+namespace Slimish\Entity;
 
-use \RelEng\Application;
+use \Slimish\Application;
 
 class MapperFactory
 {
     use Application\ServiceLocatorAwareTrait;
 
     /**
-     * @param \RelEng\Application\ServiceLocator $serviceLocator
+     * @param \Slimish\Application\ServiceLocator $serviceLocator
      */
     public function __construct(Application\ServiceLocator $serviceLocator)
     {
@@ -24,7 +24,7 @@ class MapperFactory
 
     /**
      * @param $name
-     * @return \RelEng\Entity\MapperInterface
+     * @return \Slimish\Entity\MapperInterface
      */
     public function get($name)
     {
@@ -37,7 +37,7 @@ class MapperFactory
 
     /**
      * @param $name
-     * @return \RelEng\Entity\MapperInterface
+     * @return \Slimish\Entity\MapperInterface
      */
     private function getAdapterByMapperName($name)
     {

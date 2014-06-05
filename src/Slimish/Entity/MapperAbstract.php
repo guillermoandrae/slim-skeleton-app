@@ -1,24 +1,24 @@
 <?php
 /**
- * This file is part of the RelEng package.
+ * This file is part of the Slimish package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace RelEng\Entity;
+namespace Slimish\Entity;
 
-use \RelEng\Application;
+use \Slimish\Application;
 
 abstract class MapperAbstract implements MapperInterface
 {
     use Application\ServiceLocatorAwareTrait;
 
-    /** @var \RelEng\Entity\AdapterInterface */
+    /** @var \Slimish\Entity\AdapterInterface */
     private $adapter;
 
     /**
-     * @param \RelEng\Entity\AdapterInterface $adapter
+     * @param \Slimish\Entity\AdapterInterface $adapter
      */
     public function __construct(AdapterInterface $adapter)
     {
@@ -26,7 +26,7 @@ abstract class MapperAbstract implements MapperInterface
     }
 
     /**
-     * @return \RelEng\Entity\EntityInterface|null
+     * @return \Slimish\Entity\EntityInterface|null
      */
     public function findOne()
     {
@@ -37,12 +37,12 @@ abstract class MapperAbstract implements MapperInterface
     }
 
     /**
-     * @return \RelEng\Entity\CollectionInterface
+     * @return \Slimish\Entity\CollectionInterface
      */
     abstract public function findAll();
 
     /**
-     * @param \RelEng\Entity\AdapterInterface $adapter
+     * @param \Slimish\Entity\AdapterInterface $adapter
      */
     final public function setAdapter(AdapterInterface $adapter)
     {
@@ -50,7 +50,7 @@ abstract class MapperAbstract implements MapperInterface
     }
 
     /**
-     * @return \RelEng\Entity\AdapterInterface
+     * @return \Slimish\Entity\AdapterInterface
      */
     final public function getAdapter()
     {
