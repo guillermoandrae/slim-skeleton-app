@@ -11,7 +11,7 @@
          bootstrap="tests/bootstrap.php">
 
     <testsuites>
-        <testsuite name="Portal Test Suite">
+        <testsuite name="Slimish Test Suite">
             <directory suffix="Test.php" phpVersion="5.3.2" phpVersionOperator=">=">tests/library</directory>
         </testsuite>
     </testsuites>
@@ -23,9 +23,6 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="false">
             <directory suffix=".php">src/application/library</directory>
-            <exclude>
-                <directory>src/application/library/Test</directory>
-            </exclude>
         </whitelist>
     </filter>
 
