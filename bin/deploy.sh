@@ -6,17 +6,19 @@ set -o nounset
 
 __DIR__="$(cd "$(dirname "${0}")"; echo $(pwd))"
 
+# prints usage statement
 _usage() {
-	echo "usage: ${0} <username>"
-	echo "Example: ${0} john.doe"
+	echo "usage: ${0}"
+	echo "Deploys your application code to the desired location."
 	exit 1
 }
 
+# exists the script with an error message; outputs to STDERR
 _fail() {
     if [[ "$#" -gt 0 ]]; then
-		echo "${1}";
+		echo "${1}" 1>&2
 	fi
-	echo "Exiting script."
+	echo "Exiting script." 1>&2
 	exit 1
 }
 
@@ -26,15 +28,11 @@ if [[ "$#" -lt 1 ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "--help" ]] || [[ 
 fi
 
 # set the need variables
+declare application_name="Slimish"
 declare source_code_path="$(dirname "${__DIR__}")"
 declare destination_user="${1}"
-declare destination_servers="dssysweb01.dominionenterprises.com dssysweb02.dominionenterprises.com"
-declare destination_code_path="/var/www/html/releng"
-
-# verify that the project has been built
-if [ ! -d "${source_code_path}/vendor" ]; then
-	_fail "Please run a build before you make further attempts to deploy!"
-fi
+declare destination_servers="server1.com server2.com"
+declare destination_code_path="/remote/path/to/code"
 
 # deploy the code
 for server in ${destination_servers}; do
@@ -48,6 +46,7 @@ for server in ${destination_servers}; do
         --exclude="*.iml" \
         --exclude="phpunit.xml*" \
         --exclude="composer.*" \
+        --exclude="*bower*" \
         --exclude="tests" \
         --exclude="reports" \
         --exclude="env.php" \
@@ -57,5 +56,5 @@ for server in ${destination_servers}; do
 done
 
 # Finish up
-echo "Done deploying the Release Engineering Portal!"
+echo "Done deploying the ${application_name} application!"
 exit 0
