@@ -1,11 +1,11 @@
 {
-  "name": "Release Engineering Portal",
+  "name": "Slimish",
   "version": "0.1.0",
-  "homepage": "https://releng.dominionenterprises.com",
+  "homepage": "https://github.com/griasolutions/Slimish",
   "authors": [
-    "Guillermo A. Fisher <guillermo.fisher@dominionenterprises.com>"
+    "Guillermo A. Fisher <donotbotherme@guillermoandraefisher.com>"
   ],
-  "description": "Release engineering at Dominion Enterprises.",
+  "description": "A skeleton app for Slim-based projects.",
   "main": "src/public/index.php",
   "moduleType": [
     "globals"
@@ -22,9 +22,7 @@
   "dependencies": {
     "font-awesome": "~4.2.0",
     "jquery": "~2.1.1",
-    "flot": "*",
     "modernizr": "~2.8.3",
-    "bootstrap": "~3.3.1",
-    "datatables": "~1.10.4"
+    "bootstrap": "~3.3.1"
   }
 }
