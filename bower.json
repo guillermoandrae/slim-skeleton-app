@@ -1,0 +1,30 @@
+{
+  "name": "Release Engineering Portal",
+  "version": "0.1.0",
+  "homepage": "https://releng.dominionenterprises.com",
+  "authors": [
+    "Guillermo A. Fisher <guillermo.fisher@dominionenterprises.com>"
+  ],
+  "description": "Release engineering at Dominion Enterprises.",
+  "main": "src/public/index.php",
+  "moduleType": [
+    "globals"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "tests",
+    "test"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.2.0",
+    "jquery": "~2.1.1",
+    "flot": "*",
+    "modernizr": "~2.8.3",
+    "bootstrap": "~3.3.1",
+    "datatables": "~1.10.4"
+  }
+}

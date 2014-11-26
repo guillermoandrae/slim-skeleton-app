@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Set some basic project information and targets -->
+<project name="Release Engineering Portal" default="build" basedir=".">
+
+    <target name="build"
+            depends="prepare, bower, phpcpd, phpmd, phpcs, phpunit, phploc, phpdoc" />
+
+    <property name="bin.dir" value="${project.basedir}/vendor/bin" override="true" />
+    <property name="reports.dir" value="${project.basedir}/reports" override="true" />
+    <property name="cache.dir" value="${project.basedir}/src/application/cache" override="true" />
+
+    <fileset dir="${project.basedir}/src/application" id="php.files">
+        <patternset refid="php"/>
+    </fileset>
+
+    <!-- Clean up from previous builds -->
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${reports.dir}/coverage" />
+        <delete dir="${reports.dir}/logs" />
+        <delete dir="${reports.dir}/docs" />
+        <delete dir="${cache.dir}/githubcom" />
+        <delete dir="${cache.dir}/githubenterprise" />
+        <delete dir="${cache.dir}/test" />
+    </target>
+
+    <!-- Prepare for the new build -->
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${reports.dir}/coverage" />
+        <mkdir dir="${reports.dir}/logs" />
+        <mkdir dir="${reports.dir}/docs" />
+        <mkdir dir="${cache.dir}/githubcom" />
+        <mkdir dir="${cache.dir}/githubenterprise" />
+        <mkdir dir="${cache.dir}/test" />
+    </target>
+
+    <!-- Bower -->
+    <target name="bower" description="Install front-end dependencies with Bower">
+        <echo msg="Installing front-end dependencies..." />
+        <exec executable="bower">
+            <arg value="install" />
+        </exec>
+    </target>
+
+    <!-- PHP Copy Paste Detector -->
+    <target name="phpcpd" description="Check for duplicate code with PHP Copy Paste Detector">
+        <echo msg="Checking for duplicate code..." />
+        <exec command="${bin.dir}/phpcpd --log-pmd ${reports.dir}/logs/pmd-cpd.xml src"
+              checkreturn="true" />
+    </target>
+
+    <!-- PHP Mess Detector -->
+    <target name="phpmd" description="Perform mess detection using PHP Mess Detector">
+        <echo msg="Checking for messy code..." />
+        <exec command="${bin.dir}/phpmd src text codesize,design,naming,unusedcode --reportfile ${reports.dir}/logs/pmd.xml --minimumpriority 2"
+              checkreturn="true" />
+    </target>
+
+    <!-- PHP Code Sniffer -->
+    <target name="phpcs" description="Check code style with PHP Code Sniffer">
+        <echo msg="Checking code against PSR2 standard..." />
+        <exec command="${bin.dir}/phpcs --standard=PSR2 --extensions=php src > ${reports.dir}/logs/phpcs.log"
+              checkreturn="true" />
+    </target>
+
+    <!-- PHPUnit -->
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <echo msg="Running tests in test suite..." />
+        <exec command="${bin.dir}/phpunit --coverage-clover ${reports.dir}/coverage/clover.xml tests"
+              checkreturn="true" />
+    </target>
+
+    <!-- PHPLoc (Lines Of Code) report -->
+    <target name="phploc" description="Measure project size using PHPLOC">
+        <echo msg="Generating 'lines of code' report..." />
+        <exec command="${bin.dir}/phploc src --log-csv ${reports.dir}/logs/phploc.csv" />
+    </target>
+
+    <!-- phpDocumentor -->
+    <target name="phpdoc" description="Creates API documentation with phpDocumentor">
+        <echo msg="Generating API documentation..." />
+        <exec command="${bin.dir}/phpdoc -d src -t ${reports.dir}/docs" />
+    </target>
+
+</project>

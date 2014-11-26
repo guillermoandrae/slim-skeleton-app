@@ -1,0 +1,52 @@
+a, a:focus, a:hover {
+  color: #fff;
+}
+
+.btn-default.back {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 25px;
+  &:hover {
+    border: 2px solid #fff;
+  }
+}
+
+.avatar-large {
+  background: @panel-background-color;
+  padding: 15px;
+  width: 200px;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+input[type=search], input[type=text], select {
+  background: @panel-solid-background-color;
+  border: 0;
+  color: @panel-content-color;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.section-heading {
+  h3 {
+    font-size: 4em;
+  }
+  .lead {
+    color: darken(@panel-content-color, 30%);
+    font-size: 1.5em;
+  }
+  .icon {
+    font-size: 65%;
+  }
+}

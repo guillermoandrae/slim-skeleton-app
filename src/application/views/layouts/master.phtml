@@ -1,0 +1,82 @@
+<?php $app = \Slim\Slim::getInstance(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+    <title>Release Engineering @ Dominion Enterprises</title>
+
+    <!-- Custom styles for this template -->
+    <link href="//cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.css"
+          rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="<?php echo $controller; ?>">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="inner">
+        <h3 class="masthead-brand"><img src="/assets/releng/img/de-logo.png"> Release Engineering</h3>
+        <ul class="nav masthead-nav">
+            <?php foreach ($navigation as $n) : ?>
+                <li<?php echo ($controller == $n['slug']) ? ' class="active"' : ''; ?>>
+                    <a href="/<?php echo $n['slug']; ?>"><?php echo $n['name']; ?></a>
+                </li>
+            <?php endforeach; ?>
+            <li class="btn-group">
+                <button type="button" class="btn btn-default"><strong><i class="glyphicon glyphicon-user"></i> &nbsp;
+                        guillermo.fisher</strong></button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Logout</a></li>
+                </ul>
+    </div>
+    </li>
+    </ul>
+</div>
+</div>
+
+<div class="site-wrapper">
+    <div class="cover-container">
+        <div class="cover">
+            <?php $app->render(sprintf('partials/%s', $partial)); ?>
+        </div>
+    </div>
+</div>
+
+<div class="mastfoot">
+    <p>Copyright &copy; <?php echo date('Y'); ?> <a href="http://www.dominionenterprises.com">Dominion Enterprises</a>.
+        All rights reserved.</p>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<?php if ($controller == 'ghe') : ?>
+    <script src="/assets/vendor/flot/jquery.flot.js"></script>
+    <script src="/assets/vendor/flot/jquery.flot.categories.js"></script>
+    <script src="/assets/vendor/flot/jquery.flot.selection.js"></script>
+    <script src="/assets/vendor/flot/jquery.flot.time.js"></script>
+    <script src="/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="/assets/releng/js/charts.js"></script>
+    <script src="/assets/releng/js/tables.js"></script>
+<?php endif; ?>
+</body>
+</html>

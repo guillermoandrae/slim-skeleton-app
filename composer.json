@@ -1,0 +1,32 @@
+{
+	"name": "Release Engineering Portal",
+    "version": "0.1.0",
+    "require": {
+        "php": ">=5.3.2",
+		"slim/slim": "2.*",
+        "doctrine/cache": "*",
+		"knplabs/github-api": "*",
+        "icanboogie/inflector": "*"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "1.*",
+        "phpmd/phpmd": "@stable",
+		"phpunit/phpunit": "3.7.14",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "phploc/phploc": "*",
+        "sebastian/phpcpd": "*",
+        "phpdocumentor/phpdocumentor": "2.*",
+        "there4/slim-test-helpers": "dev-master",
+        "phing/phing": "@stable"
+    },
+	"autoload": {
+		"psr-4": {
+			"Releng\\": "src/application/library/"
+		}
+	},
+    "autoload-dev": {
+        "psr-4": {
+            "RelengTest\\": "tests/library/"
+        }
+    }
+}
