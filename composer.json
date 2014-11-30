@@ -5,27 +5,25 @@
         "php": ">=5.3.2",
 		"slim/slim": "2.*",
         "doctrine/cache": "*",
-		"knplabs/github-api": "*",
         "icanboogie/inflector": "*"
 	},
 	"require-dev": {
-		"squizlabs/php_codesniffer": "1.*",
+		"squizlabs/php_codesniffer": "@stable",
         "phpmd/phpmd": "@stable",
-		"phpunit/phpunit": "3.7.14",
-        "phploc/phploc": "*",
-        "sebastian/phpcpd": "*",
-        "phpdocumentor/phpdocumentor": "2.*",
-        "there4/slim-test-helpers": "dev-master",
+		"phpunit/phpunit": "@stable",
+        "sebastian/phpcpd": "@stable",
+        "phpdocumentor/phpdocumentor": "@stable",
+        "there4/slim-test-helpers": "@stable",
         "phing/phing": "@stable"
     },
 	"autoload": {
 		"psr-4": {
-			"MyApp\\": "src/application/library/"
+			"Slimish\\": "src/application/library/"
 		}
 	},
     "autoload-dev": {
         "psr-4": {
-            "RelengTest\\": "tests/library/"
+            "SlimishTest\\": "tests/library/"
         }
     }
 }

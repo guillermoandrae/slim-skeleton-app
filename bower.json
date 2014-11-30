@@ -1,24 +1,6 @@
 {
   "name": "Slimish",
-  "version": "0.1.0",
-  "homepage": "https://github.com/griasolutions/Slimish",
-  "authors": [
-    "Guillermo A. Fisher <donotbotherme@guillermoandraefisher.com>"
-  ],
-  "description": "A skeleton app for Slim-based projects.",
-  "main": "src/public/index.php",
-  "moduleType": [
-    "globals"
-  ],
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor",
-    "tests",
-    "test"
-  ],
   "dependencies": {
     "font-awesome": "~4.2.0",
     "jquery": "~2.1.1",
