@@ -3,7 +3,7 @@
 <project name="Release Engineering Portal" default="build" basedir=".">
 
     <target name="build"
-            depends="prepare, bower, phpmd, phpcs, phpunit, phpdoc" />
+            depends="prepare, bower, phpmd, phpunit" />
 
     <property name="bin.dir" value="${project.basedir}/vendor/bin" override="true" />
     <property name="build.dir" value="${project.basedir}/build" override="true" />
@@ -53,12 +53,6 @@
         <echo msg="Running tests in test suite..." />
         <exec command="${bin.dir}/phpunit --coverage-clover ${build.dir}/coverage/clover.xml tests"
               checkreturn="true" />
-    </target>
-
-    <!-- phpDocumentor -->
-    <target name="phpdoc" description="Creates API documentation with phpDocumentor">
-        <echo msg="Generating API documentation..." />
-        <exec command="${bin.dir}/phpdoc -d src -t ${build.dir}/docs" />
     </target>
 
 </project>

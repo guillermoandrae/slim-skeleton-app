@@ -1,25 +1,23 @@
 {
     "name": "slim-skeleton-app",
     "require": {
-        "php": ">=5.3.2",
-		"slim/slim": "2.*",
+        "php": ">=5.4",
+	"slim/slim": "2.*",
         "doctrine/cache": "*",
         "icanboogie/inflector": "*"
-	},
-	"require-dev": {
-		"squizlabs/php_codesniffer": "@stable",
-        "phpmd/phpmd": "@stable",
-		"phpunit/phpunit": "@stable",
-        "sebastian/phpcpd": "@stable",
-        "phpdocumentor/phpdocumentor": "@stable",
-        "there4/slim-test-helpers": "@stable",
-        "phing/phing": "@stable"
     },
-	"autoload": {
-		"psr-4": {
-			"Slimish\\": "src/application/library/"
-		}
-	},
+    "require-dev": {
+	"squizlabs/php_codesniffer": "2.*",
+        "phpmd/phpmd": "2.*",
+	"phpunit/phpunit": "4.*",
+        "there4/slim-test-helpers": "@stable",
+        "phing/phing": "2.*"
+    },
+    "autoload": {
+	"psr-4": {
+	    "Slimish\\": "src/application/library/"
+	}
+    },
     "autoload-dev": {
         "psr-4": {
             "SlimishTest\\": "tests/library/"
